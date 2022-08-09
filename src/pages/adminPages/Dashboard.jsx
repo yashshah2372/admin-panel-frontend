@@ -18,7 +18,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Axios from 'axios';
 import TablePagination from '@mui/material/TablePagination';
-
+import { useNavigate} from "react-router-dom";
 
 const AddPropButton = styled( Button )({
     border: "2px solid #1ADDFF",
@@ -102,6 +102,7 @@ const Dashboard = () => {
     const [page, setPage] = React.useState(0);
     const [count, setCount] = useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    let navigate = useNavigate();
     const signOut = () => {
     };
   
@@ -155,7 +156,8 @@ const Dashboard = () => {
           <AddPropButton
             size="medium"
             variant="outlined"
-            href="/admin/addproperty"
+            //href="/admin/addproperty"
+            onClick={()=>{navigate('/admin/addProperty',{replace:true})}}
             endIcon={<AddCircleOutlineIcon />}>Add Property</AddPropButton>
         </div>
         <div className='my-5' style={{border: "2px solid #E5E5E5",borderRadius: "5px"}}>
